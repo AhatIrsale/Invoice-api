@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+keycloak:
+  admin:
+    server-url: ${keycloak-admin-serverurl:http://localhost:8080}
+    client-id: ${keycloak-admin-clientid:admin-cli}
+    realm: ${keycloak-admin-realm:e-invoice-web}
+    username: ${keycloak-admin-username:admin}
+    password: ${keycloak-admin-password:admin}
+    grant-type: ${keycloak-admin-granttype:password}
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/e-invoice
+    username: e-invoice
+    password: e-invoice
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/${keycloak.admin.realm}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+
+
+
+
