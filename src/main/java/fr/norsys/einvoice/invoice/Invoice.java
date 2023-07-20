@@ -1,7 +1,7 @@
 package fr.norsys.einvoice.invoice;
 
-import fr.norsys.einvoice.Article.Article;
-import fr.norsys.einvoice.Customer.Customer;
+import fr.norsys.einvoice.article.Article;
+import fr.norsys.einvoice.customer.Customer;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
