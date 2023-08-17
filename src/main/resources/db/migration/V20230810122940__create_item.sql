@@ -3,6 +3,6 @@ CREATE TABLE Item (
                       type VARCHAR(255),
                       price DECIMAL(10, 2),
                       description VARCHAR(255),
-                      quantity INT,
+                      quantite INT,
                       total DECIMAL(10, 2)
 );

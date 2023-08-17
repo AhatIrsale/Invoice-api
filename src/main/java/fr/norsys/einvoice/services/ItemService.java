@@ -1,7 +1,8 @@
 package fr.norsys.einvoice.services;
 
-import fr.norsys.einvoice.article.Article;
-import fr.norsys.einvoice.repository.ItemRepository;
+
+import fr.norsys.einvoice.entities.Item;
+import fr.norsys.einvoice.reposities.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,28 +11,28 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ArticleService implements IArticleService{
+public class ItemService {
     @Autowired
-    public ItemRepository articleRepository;
+    public ItemRepository itemRepository;
 
-    @Override
-    public Article save(Article p) {
-        return articleRepository.save(p);
-    }
-    @Override
-    public List<Article> findAll() {
-        return articleRepository.findAll();
-    }
-    public Optional<Article> findById(UUID id) {
-        return articleRepository.findById(id);
-    }
-    @Override
-    public void update(Article p) {
-        articleRepository.save(p);
+
+    public Item save(Item p) {
+        return itemRepository.save(p);
     }
 
-    public void delete(Article p) {
-        articleRepository.delete(p);
+    public List<Item> findAll() {
+        return itemRepository.findAll();
+    }
+    public Optional<Item> findById(UUID id) {
+        return itemRepository.findById(id);
+    }
+
+    public void update(Item p) {
+        itemRepository.save(p);
+    }
+
+    public void delete(Item p) {
+        itemRepository.delete(p);
 
     }
 }

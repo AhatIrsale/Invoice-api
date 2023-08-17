@@ -1,6 +1,6 @@
 package fr.norsys.einvoice.services;
 
-import fr.norsys.einvoice.invoice.Invoice;
+import fr.norsys.einvoice.entities.Invoice;
 
 import java.util.List;
 import java.util.Optional;

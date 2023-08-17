@@ -30,8 +30,8 @@ public class UserController {
         return this.userService.findAll();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping
+
+    @PostMapping("/sign up")
     public ResponseEntity<Void> create(@RequestBody UserRequest userRequest) {
         Objects.requireNonNull(userRequest.email(), "Email should not be null");
         Objects.requireNonNull(userRequest.password(), "Password should not be null");

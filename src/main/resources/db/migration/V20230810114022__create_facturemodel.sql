@@ -1,4 +1,4 @@
-CREATE TABLE FactureModel (
+CREATE TABLE facture_model (
                               id UUID PRIMARY KEY,
                               logo VARCHAR(255),
                               color VARCHAR(255),

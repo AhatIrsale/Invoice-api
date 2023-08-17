@@ -1,4 +1,4 @@
-package fr.norsys.einvoice.repository;
+package fr.norsys.einvoice.reposities;
 
 import fr.norsys.einvoice.entities.Personne;
 import org.springframework.data.jpa.repository.JpaRepository;

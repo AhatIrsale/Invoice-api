@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Personne {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
@@ -24,6 +24,7 @@ public class User {
     private String name;
     private String mail;
     private String password;
+    private String type;
     @OneToMany
     private List<Societe> societes;
 
