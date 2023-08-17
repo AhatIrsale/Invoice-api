@@ -1,9 +1,6 @@
-package fr.norsys.einvoice.customer;
+package fr.norsys.einvoice.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
+import java.util.List;
 
 @Entity
 @Table
@@ -18,17 +16,15 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
-
+public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID id;
-
     private String name;
-    private String adress;
-    private String phone;
-    private String Type;
-    private String logo;
-    private String MAIL;
+    private String mail;
+    private String password;
+    @OneToMany
+    private List<Societe> societes;
+
 }

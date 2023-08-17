@@ -1,7 +1,7 @@
 package fr.norsys.einvoice.services;
 
 import fr.norsys.einvoice.article.Article;
-import fr.norsys.einvoice.repository.ArticleRepository;
+import fr.norsys.einvoice.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class ArticleService implements IArticleService{
     @Autowired
-    public ArticleRepository articleRepository;
+    public ItemRepository articleRepository;
 
     @Override
     public Article save(Article p) {
