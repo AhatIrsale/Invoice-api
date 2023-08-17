@@ -35,12 +35,14 @@ public class CustomAuthenticationConverter implements Converter<Jwt, AbstractAut
             jwtGrantedAuthoritiesConverter.convert(jwt).stream(),
             extractResourceRoles(jwt).stream()
         ).collect(Collectors.toSet());
+       // System.out.println("Decoded Token: " + jwt);
 
         return new JwtAuthenticationToken(
             jwt,
             authorities,
             getPrincipleClaimName(jwt)
         );
+
     }
 
     private String getPrincipleClaimName(Jwt jwt) {
@@ -65,5 +67,7 @@ public class CustomAuthenticationConverter implements Converter<Jwt, AbstractAut
             .stream()
             .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
             .collect(Collectors.toSet());
+
     }
+
 }

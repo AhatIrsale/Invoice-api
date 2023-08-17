@@ -32,11 +32,20 @@ public class UserService {
         userRepresentation.setUsername(userRequest.username());
         userRepresentation.setLastName(userRepresentation.getLastName());
         userRepresentation.setFirstName(userRepresentation.getFirstName());
+
+        // Set the appropriate realm role
+        List<String> realmRoles = List.of("ROLE_" + userRequest.role());
+        System.out.println("role : " + userRequest.role() );
+        //aded
+
+        userRepresentation.setRealmRoles(realmRoles);
+
         CredentialRepresentation passwordCred = new CredentialRepresentation();
         passwordCred.setTemporary(false);
         passwordCred.setType(CredentialRepresentation.PASSWORD);
         passwordCred.setValue(userRequest.password());
         userRepresentation.setCredentials(of(passwordCred));
+
         keycloak.realm(realm).users().create(userRepresentation) ;
     }
 }
