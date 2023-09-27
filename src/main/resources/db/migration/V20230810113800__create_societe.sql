@@ -4,6 +4,7 @@ CREATE TABLE Societe (
                          adresse VARCHAR(255),
                          phone VARCHAR(255),
                          mail VARCHAR(255),
+                         type VARCHAR(255),
                          personne_id UUID,
-                         FOREIGN KEY (personne_id) REFERENCES Personne(id)
+                         FOREIGN KEY (personne_id) REFERENCES Personne(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

@@ -5,6 +5,6 @@ CREATE TABLE facture_model (
                               style VARCHAR(255),
                               client_id UUID,
                               responsable_id UUID,
-                              FOREIGN KEY (client_id) REFERENCES Societe(id),
-                              FOREIGN KEY (responsable_id) REFERENCES Societe(id)
+                              FOREIGN KEY (client_id) REFERENCES Societe(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                              FOREIGN KEY (responsable_id) REFERENCES Societe(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

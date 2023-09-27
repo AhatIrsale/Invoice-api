@@ -23,10 +23,10 @@ public class FactureModel {
     private String logo;
     private String color;
     private String style;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "client_id")
     private Societe client;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "responsable_id")
     private Societe responsable;
 

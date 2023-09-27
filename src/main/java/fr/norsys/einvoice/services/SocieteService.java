@@ -26,10 +26,14 @@ public class SocieteService {
     public Optional<Societe> findById(UUID id) {
         return societeRepository.findById(id);
     }
+    public List<Societe> findByType(String type) {
+        return societeRepository.findByType(type);
+    }
 
     public void update(Societe p) {
         societeRepository.save(p);
     }
 
     public void delete(Societe p) {societeRepository.delete(p);}
+
 }

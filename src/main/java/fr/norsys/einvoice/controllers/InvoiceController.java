@@ -47,9 +47,7 @@ public class InvoiceController {
     public void delete(@RequestBody Invoice p) {
         invoiceService.delete(p);
     }
-    @GetMapping("/{dateD}/{dateF}")
-    public List<Invoice> findBetweenDates(@PathVariable LocalDate dateD,@PathVariable LocalDate dateF){
-        return invoiceService.findBetweenDates(dateD,dateF);
-    }
+
+
 
 }

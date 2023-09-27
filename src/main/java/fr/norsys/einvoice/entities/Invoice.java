@@ -1,12 +1,14 @@
 package fr.norsys.einvoice.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+
 
 
 import java.time.LocalDate;
@@ -35,12 +37,14 @@ public class Invoice {
     private LocalDate dateFin;
     private boolean brouillon;
     private String status;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Societe client;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Societe responsable;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    private Item item;
-    @ManyToOne(cascade = CascadeType.PERSIST)
     private FactureModel factureModel;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Item> items;
+
 }

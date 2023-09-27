@@ -4,8 +4,10 @@ import org.keycloak.admin.client.Keycloak;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.keycloak.admin.client.resource.UsersResource;
+import org.keycloak.representations.idm.CredentialRepresentation;
+import org.keycloak.representations.idm.UserRepresentation;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +31,10 @@ public class UserController {
     public List<UserDTO> findUsers() {
         return this.userService.findAll();
     }
-
+@GetMapping("/roles")
+public List<UserDTO> getAllRoles(){
+    return this.userService.getAllUsersWithRoles();
+}
 
     @PostMapping("/sign up")
     public ResponseEntity<Void> create(@RequestBody UserRequest userRequest) {
@@ -39,4 +44,6 @@ public class UserController {
         this.userService.createUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+
 }

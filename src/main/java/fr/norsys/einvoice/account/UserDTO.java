@@ -1,4 +1,6 @@
 package fr.norsys.einvoice.account;
 
-public record UserDTO(String firstName, String lastName){}
+import java.util.List;
+
+public record UserDTO(String firstName, String lastName, List<String> roles){}
 

@@ -8,10 +8,8 @@ CREATE TABLE Invoice (
                          status VARCHAR(255),
                          client_id UUID,
                          responsable_id UUID,
-                         item_id UUID,
                          facture_model_id UUID,
-                         FOREIGN KEY (client_id) REFERENCES Societe(id),
-                         FOREIGN KEY (client_id) REFERENCES Societe(id),
-                         FOREIGN KEY (item_id) REFERENCES Item(id),
-                         FOREIGN KEY (facture_model_id) REFERENCES facture_model(id)
+                         FOREIGN KEY (client_id) REFERENCES Societe(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                         FOREIGN KEY (client_id) REFERENCES Societe(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                         FOREIGN KEY (facture_model_id) REFERENCES facture_model(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

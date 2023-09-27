@@ -25,6 +25,7 @@ public class Societe {
     private String adresse;
     private  String phone;
     private  String mail;
+    private  String type;
    @ManyToOne(cascade = CascadeType.PERSIST)
     private Personne personne;
 

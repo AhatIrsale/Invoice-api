@@ -2,6 +2,7 @@ package fr.norsys.einvoice.services;
 
 import fr.norsys.einvoice.entities.Invoice;
 import fr.norsys.einvoice.reposities.InvoiceRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class InvoiceService implements IInvoiceService {
     private final InvoiceRepository invoiceRepository;
     @Autowired
@@ -38,7 +40,7 @@ public class InvoiceService implements IInvoiceService {
         invoiceRepository.delete(p);
 
     }
-    public List<Invoice> findBetweenDates(LocalDate dateD, LocalDate dateF){
-        return invoiceRepository.findByDateDebutBetween(dateD,dateF);
-    }
+
+
+
 }

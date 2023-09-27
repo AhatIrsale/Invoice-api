@@ -1,6 +1,7 @@
 package fr.norsys.einvoice.controllers;
 
 
+import fr.norsys.einvoice.entities.Invoice;
 import fr.norsys.einvoice.entities.Societe;
 import fr.norsys.einvoice.services.SocieteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,14 @@ public class SocieteController {
     @PutMapping("/update")
     public void update(@RequestBody Societe p) {
         societeService.update(p);
+    }
+   @GetMapping("/type/{type}")
+    public  List<Societe> findByType(@PathVariable String type)
+    {
+        return societeService.findByType(type);
+    }
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody Societe p) {
+        societeService.delete(p);
     }
 }
