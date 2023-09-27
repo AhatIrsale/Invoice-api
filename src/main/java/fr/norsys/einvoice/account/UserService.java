@@ -67,14 +67,28 @@ public class UserService {
         UserRepresentation userRepresentation = new UserRepresentation();
         userRepresentation.setEmail(userRequest.email());
         userRepresentation.setUsername(userRequest.username());
+<<<<<<< HEAD
         userRepresentation.setLastName(userRequest.firstName());
         userRepresentation.setFirstName(userRequest.lastName());
         userRepresentation.setEnabled(true);
+=======
+        userRepresentation.setLastName(userRepresentation.getLastName());
+        userRepresentation.setFirstName(userRepresentation.getFirstName());
+
+        // Set the appropriate realm role
+        List<String> realmRoles = List.of("ROLE_" + userRequest.role());
+        System.out.println("role : " + userRequest.role() );
+        //aded
+
+        userRepresentation.setRealmRoles(realmRoles);
+
+>>>>>>> origin/pfa-2023
         CredentialRepresentation passwordCred = new CredentialRepresentation();
         passwordCred.setTemporary(false);
         passwordCred.setType(CredentialRepresentation.PASSWORD);
         passwordCred.setValue(userRequest.password());
         userRepresentation.setCredentials(of(passwordCred));
+
         keycloak.realm(realm).users().create(userRepresentation) ;
     }*/
 

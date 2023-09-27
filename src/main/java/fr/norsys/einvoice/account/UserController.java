@@ -36,13 +36,16 @@ public List<UserDTO> getAllRoles(){
     return this.userService.getAllUsersWithRoles();
 }
 
-    @PostMapping("/sign up")
+   @PreAuthorize("hasRole('ADMIN') or hasRole('VIP') or hasRole('NORMAL') or hasRole('COMMERCIAL')")
+    @PostMapping
     public ResponseEntity<Void> create(@RequestBody UserRequest userRequest) {
         Objects.requireNonNull(userRequest.email(), "Email should not be null");
         Objects.requireNonNull(userRequest.password(), "Password should not be null");
         Objects.requireNonNull(userRequest.username(), "Username should not be null");
+       // System.out.println(userRequest.role());
         this.userService.createUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+
     }
 
 
